@@ -20,8 +20,8 @@ module ActiveRecord
           include InstanceMethods
 
           if options[:auto]
-            before_validation(:on => :create) { assign_uuid }
-            before_save(:on => :create) { assign_uuid }
+            before_validation(on: :create) { assign_uuid }
+            before_create { assign_uuid }
           end
 
           class_attribute :uuid_column
